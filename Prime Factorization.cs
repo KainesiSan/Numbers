@@ -10,7 +10,7 @@ namespace CSharp_Shell
             double number;
             
             /* Делитель */
-            double divider;
+            double divider = 2;
             
             /* Предел делителя */
             double limit;
@@ -23,7 +23,6 @@ namespace CSharp_Shell
                 Console.Write("Введите число: ");
                 number = Convert.ToDouble(Console.ReadLine());
                 
-                divider = 2;
                 limit = Convert.ToDouble(Math.Sqrt(number) + 1);
                 
                 while (divider < limit)
