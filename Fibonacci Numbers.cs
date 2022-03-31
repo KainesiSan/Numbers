@@ -26,29 +26,31 @@ namespace CSharp_Shell
                 Console.Write("Введите длину последовательности: ");
                 sequenceLength = Convert.ToUInt16(Console.ReadLine());
                 
-                if (sequenceLength >= 0 && sequenceLength <= 1476)
+                if (sequenceLength > 1476)
                 {
-                    output += $"{firstNumber.ToString()} ";
-                    
-                    if (sequenceLength >= 1)
-                    {
-                        secondNumber = 1;
-                        output += $"{secondNumber.ToString()} ";
-                    }
-                }
-                else if (sequenceLength > 1476)
-                {
-                    Console.WriteLine("Длина последовательности не может быть меньше 0 или больше 1476.");
+                    output = "Длина последовательности не может быть меньше 0 или больше 1476.";
                 }
                 
-                for (short a = 1; sequenceLength > a && sequenceLength <= 1476; ++a)
+                /* Алгоритм поиска чисел Фибоначчи */
+                for (short i = 0; sequenceLength >= i && sequenceLength <= 1476; ++i)
                 {
-                    result = firstNumber + secondNumber;
-                    
-                    output += $"{result.ToString()} ";
-                    
-                    firstNumber = secondNumber;
-                    secondNumber = result;                
+                    if (i == 0)
+                    {
+                        output += $"{firstNumber.ToString()} ";
+                    }
+                    else if (i == 1)
+                    {
+                        output += $"{secondNumber.ToString()} ";
+                    }
+                    else if (i >= 2)
+                    {
+                        result = firstNumber + secondNumber;
+                        
+                        output += $"{result.ToString()} ";
+                        
+                        firstNumber = secondNumber;
+                        secondNumber = result;
+                    }
                 }
                 
                 Console.WriteLine(output);
